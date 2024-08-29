@@ -6,19 +6,18 @@ import java.util.Optional;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public abstract interface BaseRepository<T, E> {
+public abstract interface BaseRepository<BaseEntity, Long> {
 
-	<S extends T> S save(S entity);
+	<S extends BaseEntity> S save(S entity);
 	
-	List<T> findAll();
+	List<BaseEntity> findAll();
 	
-	Optional<T> findById(E id);
+	Optional<BaseEntity> findById(Long id);
 
-	void delete(T baseEntity);
+	void delete(BaseEntity baseEntity);
 	
-	void deleteById(E id);
+	void deleteById(Long id);
 
-	void deleteAll(Iterable<? extends T> entities);	
+	void deleteAll(Iterable<? extends BaseEntity> entities);	
 
 }
-			
