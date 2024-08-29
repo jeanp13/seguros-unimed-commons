@@ -9,7 +9,9 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.security.NoSuchAlgorithmException;
 import java.text.Normalizer;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Locale;
 import java.util.Map;
@@ -514,5 +516,30 @@ public class GcGeralUtil {
 		final T obj = mapeador.readValue(json, objeto);
 		return obj;
 	}
+
+	/**
+	 * Converter o valor em milisegundos de uma data para converter somente o tempo em uma expressão CRON 
+	 * @param millis Data em milisegundos
+	 * @return Somente o tempo tempo na expressão CRON
+	 */
+	 public static String convertMillisToCron(long millis) {
+	        // Criar uma data a partir dos milissegundos
+	        Date date = new Date(millis);
+
+	        // Formatar a data para extrair o horário no formato HH:mm:ss
+	        SimpleDateFormat sdf = new SimpleDateFormat("HH:mm:ss");
+	        String formattedTime = sdf.format(date);
+
+	        // Dividir a string de tempo no formato HH:mm:ss
+	        String[] parts = formattedTime.split(":");
+
+	        // Extrair hora, minuto e segundo
+	        String hour = parts[0];
+	        String minute = parts[1];
+	        String second = parts[2];
+
+	        // Retornar a expressão cron correspondente
+	        return String.format("%s %s %s * * *", second, minute, hour);
+	    }
 
 }

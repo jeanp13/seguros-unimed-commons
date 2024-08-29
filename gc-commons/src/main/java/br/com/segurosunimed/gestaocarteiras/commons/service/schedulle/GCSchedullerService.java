@@ -33,13 +33,13 @@ public class GCSchedullerService {
     @Scheduled(cron = EVERY_HOUR)
 	public void ExecuteHourlySchedulled() {
     	
-//    	Calendar now = Calendar.getInstance();
-//    	String cronNow = geralUtil.convertMillisToCron(now.getTimeInMillis());
-//    	
-//    	if(mapSchedulledService.containsKey(cronNow)) {
-//    		BaseSchedulleService schedulledService = (BaseSchedulleService) mapSchedulledService.get(cronNow);
-//    		schedulledService.execute();
-//    	}
+   	Calendar now = Calendar.getInstance();
+   	String cronNow = GcGeralUtil.convertMillisToCron(now.getTimeInMillis());
+   	
+   	if(mapSchedulledService.containsKey(cronNow)) {
+   		BaseSchedulleService schedulledService = (BaseSchedulleService) mapSchedulledService.get(cronNow);
+   		schedulledService.execute();
+   	}
 		
 	}
 	
