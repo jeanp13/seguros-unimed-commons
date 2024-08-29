@@ -1,4 +1,8 @@
 #NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+<<<<<<< HEAD
 #Thu Aug 29 14:02:53 BRT 2024
+=======
+#Thu Aug 29 14:07:57 BRT 2024
+>>>>>>> master
 gc-commons-1.0.5.jar>=
 gc-commons-1.0.5.pom>=
